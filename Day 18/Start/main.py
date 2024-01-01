@@ -14,30 +14,30 @@ turtle.colormode(255)
 
 # for _ in range(4):
 #     for _ in range(10):
-#         tim.color("black")
-#         tim.forward(10)
-#         tim.color("white")
-#         tim.forward(10)
-#     tim.right(90)
-#     tim.color("black")
+#         tim_color.color("black")
+#         tim_color.forward(10)
+#         tim_color.color("white")
+#         tim_color.forward(10)
+#     tim_color.right(90)
+#     tim_color.color("black")
 
 # for _ in range(40):
-#     tim.pendown()
-#     tim.forward(10)
-#     tim.penup()
-#     tim.forward(10)
+#     tim_color.pendown()
+#     tim_color.forward(10)
+#     tim_color.penup()
+#     tim_color.forward(10)
 
 
 # for sides in range(3,11):
-#     tim.pencolor(random.randint(0,255), random.randint(0,255), random.randint(0,255) )
+#     tim_color.pencolor(random.randint(0,255), random.randint(0,255), random.randint(0,255) )
 #     for _ in range(sides):
-#         tim.forward(100)
-#         tim.right(360/sides)
+#         tim_color.forward(100)
+#         tim_color.right(360/sides)
 
 # for _ in range(2000):
-#     tim.pencolor(random.randint(0,255), random.randint(0,255), random.randint(0,255) )
-#     tim.forward(10)
-#     tim.setheading(random.choice([0,90,180,270]))
+#     tim_color.pencolor(random.randint(0,255), random.randint(0,255), random.randint(0,255) )
+#     tim_color.forward(10)
+#     tim_color.setheading(random.choice([0,90,180,270]))
 
 
 def draw_spirograph(size_of_gap):
