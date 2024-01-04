@@ -36,13 +36,16 @@ resources = {
     "coffee": 100,
     "money": 0
 }
-def createReport():
+
+
+def create_report():
     print(f"Water: {resources['water']}ml")
     print(f"Milk: {resources['milk']}ml")
     print(f"Coffee: {resources['coffee']}g")
     print(f"Money: ${resources['money']}")
 
-def completeTransaction(cost):
+
+def complete_transaction(cost):
     print("Please insert coins.")
     quarters = int(input("how many quarters?: "))
     dimes = int(input("how many dimes?: "))
@@ -58,28 +61,32 @@ def completeTransaction(cost):
     else:
         print("Sorry that's not enough money. Money refunded.")
         return False
-def checkIsResourcesAreEnough(ingredients):
+
+
+def check_is_resources_are_enough(ingredients):
     for ingredient in ingredients:
         if resources[ingredient] < ingredients[ingredient]:
             print(f"Sorry there is not enough {ingredient}.")
             return False
-def makeCoffee(userInput, ingredients):
+
+
+def make_coffee(user_input, ingredients):
     for ingredient in ingredients:
         resources[ingredient] = resources[ingredient] - ingredients[ingredient]
-    print(f"Here is your {userInput} ☕️. Enjoy!")
-def orderCoffee(userInput):
-    coffeeDetails = MENU[userInput]
-    if checkIsResourcesAreEnough(coffeeDetails["ingredients"]) is not False:
-        transactionStatus = completeTransaction(coffeeDetails["cost"])
-        if transactionStatus is True:
-            makeCoffee(userInput, coffeeDetails["ingredients"])
+    print(f"Here is your {user_input} ☕️. Enjoy!")
+
+
+def order_coffee(user_input):
+    coffee_details = MENU[user_input]
+    if check_is_resources_are_enough(coffee_details["ingredients"]) is not False:
+        transaction_status = complete_transaction(coffee_details["cost"])
+        if transaction_status is True:
+            make_coffee(user_input, coffee_details["ingredients"])
 
 
 while 1 == 1:
     userInput = str(input("What would you like? (espresso/latte/cappuccino): "))
     if userInput == "report":
-        createReport()
+        create_report()
     else:
-        orderCoffee(userInput)
-
-
+        order_coffee(userInput)

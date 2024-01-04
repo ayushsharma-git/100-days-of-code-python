@@ -1,10 +1,11 @@
-from turtle import Turtle, Screen
 import random
+from turtle import Turtle, Screen
+
 # turtle dimensions are 40x40
 colors = ["red", "pink", "blue", "black", "green", "orange"]
 is_race_on = False
 screen = Screen()
-screen.setup(width=1000,height=1000)
+screen.setup(width=1000, height=1000)
 user_bet = screen.textinput(title="Place your bet", prompt=f"Which turtle will win the race {colors}?\nEnter a color:")
 turtles = {}
 y = 150
@@ -18,10 +19,11 @@ for color in colors:
 if user_bet:
     is_race_on = True
 
+winner = ""
 while is_race_on:
     for turtle_color in turtles:
         turtle_boi = turtles[turtle_color]
-        turtle_boi.forward(random.randint(0,10))
+        turtle_boi.forward(random.randint(0, 10))
         if turtle_boi.xcor() > 470:
             is_race_on = False
             winner = turtle_color
@@ -32,15 +34,8 @@ else:
     print(f"You lost!")
 print(f"The winner is {winner} turtle")
 
-
-
-
-
 screen.listen()
 screen.exitonclick()
-
-
-
 
 #
 # def move_forward():

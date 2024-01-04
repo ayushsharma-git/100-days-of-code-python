@@ -1,8 +1,8 @@
-#PascalCase class
-'''
-has attributes
-does methods
-'''
+# PascalCase class
+# has attributes
+# does methods
+
+
 class User:
     def __init__(self, user_id, username):
         self.id = user_id
