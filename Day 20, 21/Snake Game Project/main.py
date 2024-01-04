@@ -6,7 +6,7 @@ from scoreboard import Scoreboard
 from snake import Snake
 
 screen = Screen()
-screen.setup(width=1000, height=1000)
+screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snake Game")
 screen.tracer(0)
@@ -34,7 +34,7 @@ while game_is_on:
         scoreboard.increase_score_by_one()
 
     # Detect collision with wall
-    if new_snake.head.xcor() > 480 or new_snake.head.xcor() < -480 or new_snake.head.ycor() > 480 or new_snake.head.xcor() < -480:
+    if new_snake.head.xcor() > 290 or new_snake.head.xcor() < -290 or new_snake.head.ycor() > 290 or new_snake.head.ycor() < -290:
         game_is_on = False
         scoreboard.game_over()
     # Detect collision with tail
