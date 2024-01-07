@@ -1,48 +1,52 @@
-from time import sleep
 from turtle import Screen
-
+from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
-from snake import Snake
+import time
 
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
-screen.title("Snake Game")
+screen.title("My Snake Game")
 screen.tracer(0)
 
-new_snake = Snake()
+snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
-screen.listen()
 
-screen.onkey(new_snake.up, "Up")
-screen.onkey(new_snake.down, "Down")
-screen.onkey(new_snake.left, "Left")
-screen.onkey(new_snake.right, "Right")
+screen.listen()
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
 
 game_is_on = True
-
 while game_is_on:
     screen.update()
-    sleep(0.05)
-    new_snake.move()
+    time.sleep(0.1)
+    snake.move()
 
-    if new_snake.head.distance(food) < 15:
+    #Detect collision with food.
+    if snake.head.distance(food) < 15:
         food.refresh()
-        new_snake.extend()
-        scoreboard.increase_score_by_one()
+        snake.extend()
+        scoreboard.increase_score()
 
-    # Detect collision with wall
-    if new_snake.head.xcor() > 290 or new_snake.head.xcor() < -290 or new_snake.head.ycor() > 290 or new_snake.head.ycor() < -290:
+    #Detect collision with wall.
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         game_is_on = False
         scoreboard.game_over()
-    # Detect collision with tail
 
-    for segment in new_snake.segments[1:]:
-        if new_snake.head.distance(segment) < 10:
+    #Detect collision with tail.
+    for segment in snake.segments:
+        if segment == snake.head:
+            pass
+        elif snake.head.distance(segment) < 10:
             game_is_on = False
             scoreboard.game_over()
-# segment(start:end:increment)
-# increment can be negative for reversing the list
+
+
+
+
+
 screen.exitonclick()
